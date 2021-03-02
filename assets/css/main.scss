@@ -1,0 +1,262 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+//========== Dan's Customizations START ==========
+
+// These sizes are unchanged, but they must be pre-defined so we can reference them in our changes below.
+// Values were taken from '_sass/minimal-mistakes/_variables.scss' of the minimal-mistakes repo.
+$type-size-1 : 2.441em; // ~39.056px
+$type-size-2 : 1.953em; // ~31.248px
+$type-size-3 : 1.563em; // ~25.008px
+$type-size-4 : 1.25em; // ~20px
+$type-size-5 : 1em; // ~16px
+$type-size-6 : 0.75em; // ~12px
+$type-size-7 : 0.6875em; // ~11px
+$type-size-8 : 0.625em; // ~10px
+
+// Reduce the size of regular text in our posts a bit.
+.page__content
+{
+	font-size: 0.8em;
+}
+
+// Reducing the Page Content font size also reduces the Table Of Contents size a bit too much, so make that bigger.
+.toc
+{
+	font-size: $type-size-4;
+}
+
+// Reduce the size of the comments text in our posts a bit.
+.comment__content-wrapper
+{
+	font-size: $type-size-6
+}
+
+// Create some new styles for our site description customization, which is referenced in masthead.html.
+.DansSiteDescription
+{
+	margin: 0;
+	padding: 0;
+	font-size: $type-size-6;
+}
+
+// Reduce the amount of whitespace above and below the 'Recent Posts' heading on the home page.
+#home-page-recent-posts
+{
+	margin-top: -1em;
+	margin-bottom: -2em;
+}
+
+// Use more prominent colors for inline code text.
+code.highlighter-rouge
+{
+	background-color: #dbe4e8;
+	color: #7502ff;
+}
+
+// Make <kbd> HTML elements look like nice keyboard keys.
+kbd
+{
+	-moz-border-radius:3px;
+	-moz-box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
+	-webkit-border-radius:3px;
+	-webkit-box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
+	background-color:#f7f7f7;
+	border:1px solid #ccc;
+	border-radius:3px;
+	box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
+	color:#333;
+	display:inline-block;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:0.8em;
+	line-height:1.4;
+	margin:0 .1em;
+	padding:.1em .6em;
+	text-shadow:0 1px 0 #fff;
+}
+
+// Style for our dynamically generated Copy Code Snippet buttons.
+.CopyCodeSnippetToClipboardButton
+{
+	float: right;
+	cursor: pointer;
+}
+
+.CopyCodeSnippetToClipboardButton:hover
+{
+	font-weight: bolder;
+}
+
+.CopyCodeSnippetToClipboardButton.Tooltip
+{
+	position: relative;	// Ensure the TooltipText element's position is relative to the element that has the tooltip.
+	font-size: 1.5em;	// Make copy icon a bit larger.
+}
+
+.CopyCodeSnippetToClipboardButton.Tooltip .TooltipText
+{
+	color: #555;
+	background-color: #fff;
+	text-align: center;
+	border-radius: 6px;
+
+	font-size: 0.75em;	// Have to shrink text a bit, as we increased the font-size of the parent Tooltip.
+	padding: 0.3em 0.5em;
+	z-index: 1;	// Ensure the TooltipText shows up on top of any other elements.
+
+	position: absolute;
+	right: 100%;	// Ensure text shows up to the left of the element with the Tooltip.
+	margin-right: 0.5em;	// Give a bit more padding so the Tooltip doesn't touch the element with the Tooltip.
+	top: 50%;	// Center the tooltip vertically with the Tooltip element.
+	transform: translateY(-50%);
+
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.3s;
+
+	// Value taken from the $sans-serif variable value in '_sass/minimal-mistakes/_variables.scss' of the minimal-mistakes repo.
+	font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+}
+
+// The little arrow on the tooltip that points toward it's element that makes it look like a speech bubble.
+.CopyCodeSnippetToClipboardButton.Tooltip .TooltipText::after
+{
+	content: ""; // Doesn't show up if the content is not set.
+	position: absolute;
+
+	left: 100%;	// Make sure the arrow shows up on the right side of the TooltipText.
+	top: 50%;	// Center the arrow vertically with the TooltipText.
+	transform: translateY(-50%);
+
+	height: 0.1em;
+	border-style: solid;
+	border-color: transparent transparent transparent #fff;
+}
+
+// Show the TooltipText when the hovering over the Tooltip element.
+.CopyCodeSnippetToClipboardButton.Tooltip:hover .TooltipText
+{
+	visibility: visible;
+	opacity: 1;
+}
+
+// Have a fixed donate section on all of the pages (always on-top on bottom-left).
+#Donate
+{
+	position: fixed;
+	width: 100%;
+	max-width: 1300px;	// Ensure the Donate section doesn't drift too far left on large screens.
+	bottom: 0;
+	pointer-events: none;	// Allow clicking through the div to blog content underneath.
+}
+
+#DonateModalOpenButton
+{
+	z-index: 10;	// Always on-top, except for modals.
+	cursor: pointer;
+	pointer-events: auto;	// Restore allowing clicking this element in the Donate div.
+}
+
+// Default size for the donate image on large screens.
+.donate-button-image
+{
+	width: 150px;
+}
+
+// Shrink donate image a bit on medium size screens.
+@media only screen and (max-width: 1024px)
+{
+	.donate-button-image
+	{
+		width: 100px;
+	}
+}
+
+// Shrink donate images a lot on smaller screens.
+@media only screen and (max-width: 500px)
+{
+	.donate-button-image
+	{
+		width: 80px;
+	}
+
+	.donate-image
+	{
+		width: 120px;
+	}
+}
+
+// Modal background.
+.modal-container
+{
+	display: none;	// Hidden by default.
+	position: fixed;
+	z-index: 100;	// Always on top.
+
+	// Center the modal-container div.
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+	width: 80%;
+	max-width: 600px;
+	padding: 10px;
+	overflow: auto;	// Enable scroll if needed.
+	background-color: rgb(0, 0, 0);	// Fallback color.
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+// The modal's close button.
+.modal-close-button
+{
+	float: right;
+	margin-right: 20px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.modal-close-button:hover,
+.modal-close-button:focus
+{
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+// Modal content.
+.modal-content
+{
+	margin: auto;
+	display: block;
+	clear: both;	// Ensure the content appears below the floated close button.
+	width: 80%;
+	text-align: center;
+	padding-bottom: 30px;
+	color: #7502ff;
+}
+
+.modal-content a
+{
+	text-decoration: underline !important; // Override the footer's "text-decoration: none;". https://stackoverflow.com/a/64637823/602585
+}
+
+// Styles for easily positioning html-defined images in posts.
+img.left
+{
+	float: left;
+	margin-right: 0.5em;
+}
+img.right
+{
+	float: right;
+	margin-left: 0.5em;
+}
+
+//========== Dan's Customizations END ==========
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials

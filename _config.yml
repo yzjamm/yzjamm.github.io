@@ -96,7 +96,7 @@ analytics:
 author:
   name             : "Zhun (Jack) Yang"
   avatar           : # path of avatar image, e.g. "/assets/images/IMG_6658.jpg"
-  bio              : "I am an **lazy** person."
+  bio              : "Notes, Tips for Database **Oracle Cloud**, **Exadata Cloud @ Customer**, **MySQL** and more..."
   location         : "Toronto, ON, Canada"
   email            : "yzjamm@hotmail.com"
   links:

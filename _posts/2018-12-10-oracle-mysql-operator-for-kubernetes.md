@@ -4,7 +4,7 @@ date: 2018-12-10
 comments: true
 categories: [MySQL, Kubernetes, StudyNotes]
 tags: [MySQL, Kubernetes, Docker, Study Notes]
-typora-copy-images-to: ..\assets\img
+typora-copy-images-to: ../assets/img
 ---
 Oracle recently open sourced a Kubernetes operator for MySQL that makes running and managing MySQL on Kubernetes easier.
 

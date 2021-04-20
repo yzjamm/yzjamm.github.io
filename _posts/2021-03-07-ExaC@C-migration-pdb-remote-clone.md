@@ -1,7 +1,7 @@
 ---
 
 title: ExaC@C Migration 3 - Pdb Remote Clone
-date: 2021-03-05
+date: 2021-03-07
 comments: true
 categories: [Exadata, Oracle]
 tags: [Exadata, ExaC@C, Oracle Cloud]
